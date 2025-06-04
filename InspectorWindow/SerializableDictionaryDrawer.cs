@@ -8,7 +8,7 @@ public class SerializableDictionaryDrawer : PropertyDrawer
     private static float _lineHeight => EditorGUIUtility.singleLineHeight;
     private static float _verticalSpacing = 4f;
 
-    // Foldout »óÅÂ ÀúÀå
+    // Foldout ìƒíƒœ ì €ì¥
     private Dictionary<string, bool> _foldoutStates = new();
 
     public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
@@ -43,7 +43,7 @@ public class SerializableDictionaryDrawer : PropertyDrawer
 
             float y = position.y + _lineHeight + _verticalSpacing;
 
-            // + Add ¹öÆ°
+            // + Add ë²„íŠ¼
             Rect addButtonRect = new Rect(position.x, y, 60, _lineHeight);
             if (GUI.Button(addButtonRect, "+ Add"))
             {
@@ -57,7 +57,7 @@ public class SerializableDictionaryDrawer : PropertyDrawer
 
             y += _lineHeight + _verticalSpacing;
 
-            // °¢ ¿ä¼Ò ·»´õ¸µ
+            // ê° ìš”ì†Œ ë Œë”ë§
             for (int i = 0; i < keysProp.arraySize; i++)
             {
                 SerializedProperty keyProp = keysProp.GetArrayElementAtIndex(i);
@@ -69,7 +69,7 @@ public class SerializableDictionaryDrawer : PropertyDrawer
                 Rect valueRect = new Rect(position.x + position.width * 0.4f, y, position.width * 0.55f - 30, rowHeight);
                 Rect removeRect = new Rect(position.x + position.width - 25, y, 20, _lineHeight);
 
-                // Å° Áßº¹ °Ë»ç
+                // í‚¤ ì¤‘ë³µ ê²€ì‚¬
                 bool duplicate = false;
                 for (int j = 0; j < keysProp.arraySize; j++)
                 {
@@ -81,7 +81,7 @@ public class SerializableDictionaryDrawer : PropertyDrawer
                     }
                 }
 
-                // Å° »ö»ó Ã³¸®
+                // í‚¤ ìƒ‰ìƒ ì²˜ë¦¬
                 Color oldColor = GUI.color;
                 GUI.color = duplicate ? Color.red : oldColor;
                 EditorGUI.PropertyField(keyRect, keyProp, GUIContent.none);
@@ -89,7 +89,7 @@ public class SerializableDictionaryDrawer : PropertyDrawer
 
                 EditorGUI.PropertyField(valueRect, valueProp, GUIContent.none);
 
-                // »èÁ¦ ¹öÆ°
+                // ì‚­ì œ ë²„íŠ¼
                 if (GUI.Button(removeRect, "X"))
                 {
                     keysProp.DeleteArrayElementAtIndex(i);
