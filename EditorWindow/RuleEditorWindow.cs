@@ -22,7 +22,7 @@ public class RuleEditorWindow : EditorWindow
     {
         EditorGUILayout.Space();
 
-        // ·ê¼Â ÇÒ´ç ÇÊµå
+        // ë£°ì…‹ í• ë‹¹ í•„ë“œ
         _currentRuleSet = (TileRuleSet)EditorGUILayout.ObjectField("Tile Rule Set", _currentRuleSet, typeof(TileRuleSet), false);
 
         if (_currentRuleSet == null)
@@ -180,7 +180,7 @@ public class RuleEditorWindow : EditorWindow
 
     private void DrawNeighhborsGroupByDir(Directions dir, TileData tile)
     {
-        // ÇöÀç ¹æÇâ¿¡ È£È¯ °¡´ÉÇÑ Å¸ÀÏ ¸®½ºÆ®
+        // í˜„ì¬ ë°©í–¥ì— í˜¸í™˜ ê°€ëŠ¥í•œ íƒ€ì¼ ë¦¬ìŠ¤íŠ¸
         StringListWrapper neighbors = tile.CompatibleTiles.ContainsKey(dir) ? tile.CompatibleTiles[dir] : null;
         if (neighbors == null)
         {
